@@ -13,20 +13,24 @@ export default function Auth() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isSignIn, setIsSignIn] = useState(true);
-  
+
   async function auth(e: FormEvent) {
     e.preventDefault();
     if (isSignIn) {
       try {
-        const res = await axios.post(`${process.env.NEXT_PUBLIC_RESTAPI_URL}login`, {
-          email,
-          password,
-        }, {
-          headers: {
-            "Content-Type": "application/json",
+        const res = await axios.post(
+          `${process.env.NEXT_PUBLIC_RESTAPI_URL}login`,
+          {
+            email,
+            password,
           },
-          withCredentials: true,
-        });
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
         setEmail("");
         setPassword("");
         if (res.data.error) {
@@ -34,12 +38,12 @@ export default function Auth() {
         } else {
           if (res.data.token) {
             // 今後cookieをnext/headerから取得するように変更する
-            const options = {path: "/"};
+            const options = { path: "/" };
             cookies.set("token", res.data.token, options);
 
             const userId = getUserIdFromToken(res.data.token);
             if (userId) {
-              cookies.set("ID", userId, options);
+              cookies.set("id", userId, options);
             }
           }
           router.push("/home");
@@ -48,15 +52,19 @@ export default function Auth() {
         alert(error.message);
       }
     } else {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_RESTAPI_URL}signup`, {
-        user_str_id: username,
-        email,
-        password,
-      }, {
-        headers: {
-          "Content-Type": "application/json",
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_RESTAPI_URL}signup`,
+        {
+          user_str_id: username,
+          email,
+          password,
         },
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setUsername("");
       setEmail("");
       setPassword("");
@@ -73,12 +81,7 @@ export default function Auth() {
         </h2>
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form
-          onSubmit={auth}
-          className="space-y-6"
-          action="#"
-          method="POST"
-        >
+        <form onSubmit={auth} className="space-y-6" action="#" method="POST">
           {!isSignIn && (
             <div>
               <label
