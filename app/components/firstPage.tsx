@@ -8,7 +8,7 @@ export default function FirstPage() {
           Welcome to Bulltien Board
         </h1>
         <p className="mb-4 xl:w-3/4 text-gray-600 text-lg">
-          Let's post all kinds of things on the board!
+          Let&apos;s post all kinds of things on the board!
         </p>
         <div className="flex justify-center">
           <Link
