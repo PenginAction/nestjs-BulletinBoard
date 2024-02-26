@@ -48,7 +48,7 @@ export default function PostList() {
   useEffect(() => {
     fetchPosts();
   }, [page_id]);
-  console.log(posts);
+  // console.log(posts);
   return (
     <div className="space-y-4">
       <div className="flex justify-center">
