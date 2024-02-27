@@ -24,12 +24,12 @@ export default function NavBar() {
         >
           Home
         </Link>
-        <Link
+        {/* <Link
           href="/account"
           className="rounded bg-gray-700 px-3 py-2 text-white hover:bg-gray-500"
         >
           Account
-        </Link>
+        </Link> */}
         <svg
           onClick={logout}
           className="rounded cursor-pointer w-8 h-8"
