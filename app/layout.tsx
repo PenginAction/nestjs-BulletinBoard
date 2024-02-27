@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import './globals.css'
-import FirstPage from "./components/firstPage";
 
 export const metadata: Metadata = {
   title: "Bulletin Board",
@@ -15,7 +14,6 @@ export default function RootLayout({
   return (
     <html>
       <body className="min-h-screen bg-green-200">
-        <FirstPage />
         {children}
       </body>
     </html>
