@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import NavBar from "../components/nav-bar";
-import PostList from "../components/postList";
+// import PostList from "../components/postList";
 // import PostForm from "../components/postForm";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function HomeLayout({
       <body className="min-h-screen bg-green-200">
         <NavBar />
         {/* <PageBar /> */}
-        <PostList />
+        {/* <PostList /> */}
         {/* <PostForm /> */}
         {children}
       </body>

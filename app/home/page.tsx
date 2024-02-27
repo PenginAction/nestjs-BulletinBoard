@@ -1,3 +1,11 @@
+import PostList from "../components/postList";
+
 export default function Home() {
-  return <main className="text-center"></main>;
+  return (
+    <main>
+      <div className="m-10">
+        <PostList />
+      </div>
+    </main>
+  );
 }
